@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # File containing your key-value pairs
-INPUT_FILE="../inputs/user_input.txt"
+INPUT_FILE="inputs/user_input.txt"
 
 # Target backend config file
-BACKEND_FILE="../terraform/environments/backend.tfbackend"
+BACKEND_FILE="terraform/environments/backend.tfbackend"
 
 # Extract role_name value from the input file
 role_name=$(grep '^role_name:' "$INPUT_FILE" | awk -F': ' '{print $2}')
