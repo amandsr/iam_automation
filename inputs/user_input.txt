@@ -15,7 +15,7 @@ statement3.actions: eks:DescribeCluster
 statement3.resources: arn:aws:eks:us-west-2:123456789012:cluster/my-cluster
 
 statement4.effect: Allow
-statement4.actions: ec2:StopInstances, ec2:RebootInstances, ec2:AllocateAddress, ec2:AssociateAddress, ec2:CreateNetworkInterface
+statement4.actions: ec2:StopInstances, ec2:RebootInstances, ec2:AllocateAddress
 statement4.resources: "*"
 statement4.condition.Null.aws:RequestTag/owner: true
 
