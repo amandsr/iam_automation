@@ -65,7 +65,8 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: tf-lock
-        path: terraform/environments/.terraform.lock.hcl
+        path: .terraform.lock.hcl
+      working-directory: terraform/environments/
 
   approve-and-apply:
     name: Manual Approval and Apply
@@ -93,7 +94,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: tf-lock
-        path: terraform/environments/.terraform.lock.hcl
+        path: terraform/environments/
 
     - name: Terraform Apply
       run: terraform apply -var-file=auto_inputs.tfvars.json -auto-approve tfplan
