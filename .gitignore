@@ -1,5 +1,4 @@
 Scriptz
 venv
 .terraform
-.terraform*
-*.hcl
+
