@@ -77,10 +77,10 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v3
 
-    - name: Download lock file
+    - name: Download plan fileAdd commentMore actions
       uses: actions/download-artifact@v4
       with:
-        name: tf-lock
+        name: tfplan
         path: terraform/environments/
 
     - name: Terraform Apply
