@@ -3,11 +3,6 @@ terraform {
     aws = {
       version = "~> 5.52.0"
     }
-    random = {
-      version = "~> 3.6.2"
-    }
   }
-
-  required_version = "~> 1.1.9"
   backend "s3" {}
 }
