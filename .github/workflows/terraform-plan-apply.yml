@@ -48,6 +48,12 @@ jobs:
       run: terraform validate
       working-directory: terraform/environments/
 
+    - name: Upload lock file
+      uses: actions/upload-artifact@v4
+      with:
+        name: tf-lock
+        path: terraform/environments/.terraform.lock.hcl
+
     - name: Terraform Plan
       run: terraform plan -var-file=auto_inputs.tfvars.json -out=tfplan
       working-directory: terraform/environments/
@@ -78,6 +84,12 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: tfplan
+        path: terraform/environments/
+
+    - name: Download lock file
+      uses: actions/download-artifact@v4
+      with:
+        name: tf-lock
         path: terraform/environments/
 
     - name: Terraform Apply
