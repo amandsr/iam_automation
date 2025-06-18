@@ -1,5 +1,5 @@
-role_name: CC_s3_bkt_encryption
-policy_name: s3ReadPutBucketEncryption
+role_name: CC_s3_bkt_encrypt
+policy_name: s3ReadPutBucketEncrypt
 assume_role_policy: s3.amazonaws.com
 
 statement1.effect: Allow
