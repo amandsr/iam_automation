@@ -77,6 +77,9 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v3
 
+    - name: Setup backend
+      run: sh scripts/update_backend.sh
+
     - name: Terraform Init
       run: terraform init -backend-config=backend.tfbackend
       working-directory: terraform/environments/
