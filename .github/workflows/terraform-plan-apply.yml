@@ -52,6 +52,9 @@ jobs:
       run: terraform plan -var-file=auto_inputs.tfvars.json -out=tfplan
       working-directory: terraform/environments/
 
+    - name: List files
+      run: ls -la terraform/environments/
+
     - name: Save plan file
       uses: actions/upload-artifact@v4
       with:
