@@ -1,0 +1,5 @@
+{
+  "Resource": [
+    "arn:aws:dynamodb:us-west-2:123456789012:table/LogTable"
+  ]
+}

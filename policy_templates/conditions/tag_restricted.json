@@ -1,0 +1,7 @@
+{
+  "Condition": {
+    "StringEquals": {
+      "aws:ResourceTag/Project": "my-app"
+    }
+  }
+}
