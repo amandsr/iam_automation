@@ -77,6 +77,12 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v3
 
+    - name: Run gen_tfvars.py
+      run: python scripts/gen_tfvars.py
+
+    - name: Run policy_generator.py
+      run: python scripts/policy_generator.py
+
     - name: Setup backend
       run: sh scripts/update_backend.sh
 
