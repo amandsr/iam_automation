@@ -77,6 +77,10 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v3
 
+    - name: Terraform Init
+      run: terraform init -backend-config=backend.tfbackend
+      working-directory: terraform/environments/
+
     - name: Download plan fileAdd commentMore actions
       uses: actions/download-artifact@v4
       with:
