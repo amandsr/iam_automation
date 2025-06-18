@@ -26,3 +26,7 @@ statement5.resources: "*"
 statement6.effect: Allow
 statement6.actions: kinesis:CreateStream, kinesis:PutRecords
 statement6.resources: "arn:aws:kinesis:*:*:stream/aws-rds-das-*"
+
+statement7.effect: Allow
+statement7.actions: secretsmanager:DeleteSecret, secretsmanager:DescribeSecret, secretsmanager:PutSecretValue
+statement7.resources: "arn:aws:secretsmanager:*:*:secret:rds!*"
