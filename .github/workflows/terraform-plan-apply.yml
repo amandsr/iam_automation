@@ -65,8 +65,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: tf-lock
-        path: .terraform.lock.hcl
-      working-directory: terraform/environments/
+        path: terraform/environments/.terraform.lock.hcl
 
   approve-and-apply:
     name: Manual Approval and Apply
