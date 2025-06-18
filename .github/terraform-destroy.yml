@@ -1,0 +1,23 @@
+name: Terraform Destroy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  destroy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v3
+
+    - name: Terraform Init
+      run: terraform init -backend-config=backend.tfbackend
+      working-directory: terraform/
+
+    - name: Terraform Destroy
+      run: terraform destroy -var-file=auto_inputs.tfvars.json -auto-approve
+      working-directory: terraform/

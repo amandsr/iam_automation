@@ -1,0 +1,69 @@
+name: Terraform Plan and Apply
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  plan:
+    name: Run Plan
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install Python dependencies (if any)
+      run: pip install -r requirements.txt || true
+
+    - name: Run input_generator.py
+      run: python scripts/input_generator.py input/user_input.txt
+
+    - name: Run gen_tfvars.py
+      run: python scripts/gen_tfvars.py
+
+    - name: Run policy_generator.py
+      run: python scripts/policy_generator.py
+
+    - name: Setup backend
+      run: sh scripts/update_backend.sh
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v3
+
+    - name: Terraform Init
+      run: terraform init -backend-config=backend.tfbackend
+      working-directory: terraform/
+
+    - name: Terraform Validate
+      run: terraform validate
+      working-directory: terraform/
+
+    - name: Terraform Plan
+      run: terraform.exe plan -var-file=auto_inputs.tfvars.json -out=tfplan
+      working-directory: terraform/
+
+  approve-and-apply:
+    name: Manual Approval and Apply
+    needs: plan
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Wait for Approval
+      uses: hmarr/auto-approve-action@v3.0.0
+      if: github.event_name == 'workflow_dispatch'
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v3
+
+    - name: Terraform Apply
+      run: terraform.exe apply -var-file=auto_inputs.tfvars.json -auto-approve tfplan
+      working-directory: terraform/
