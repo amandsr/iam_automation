@@ -62,8 +62,8 @@ def build_assume_role_policy(data):
         }
 
 def main():
-    input_path = Path("iam_policy_orchestration_full/inputs/user_input.json")
-    output_dir = Path("iam_policy_orchestration_full/terraform/environments/")
+    input_path = Path("inputs/user_input.json")
+    output_dir = Path("terraform/environments/")
     output_dir.mkdir(parents=True, exist_ok=True)
 
     if not input_path.exists():

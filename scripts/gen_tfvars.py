@@ -1,8 +1,8 @@
 import json
 from pathlib import Path
 
-input_txt = Path("iam_policy_orchestration_full/inputs/user_input.txt")
-output_tfvars = Path("iam_policy_orchestration_full/terraform/environments/auto_inputs.tfvars.json")
+input_txt = Path("inputs/user_input.txt")
+output_tfvars = Path("terraform/environments/auto_inputs.tfvars.json")
 
 # Keys to extract for Terraform
 terraform_keys = ["role_name", "policy_name"]

@@ -26,7 +26,7 @@ def main():
     profile_name = "prod"  # Replace with your profile or None
     iam, session = get_iam_client(profile_name)
 
-    input_file = Path("iam_policy_orchestration_full/inputs/user_input.json")
+    input_file = Path("inputs/user_input.json")
     with input_file.open() as f:
         data = json.load(f)
 

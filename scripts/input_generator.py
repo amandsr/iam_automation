@@ -68,8 +68,8 @@ def convert_value(val):
     return val
 
 def main():
-    input_file = Path("iam_policy_orchestration_full/inputs/user_input.txt")
-    output_file = Path("iam_policy_orchestration_full/inputs/user_input.json")
+    input_file = Path("inputs/user_input.txt")
+    output_file = Path("inputs/user_input.json")
 
     if not input_file.exists():
         print(f"❌ Input file not found: {input_file}")
