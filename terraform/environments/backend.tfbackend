@@ -1,4 +1,4 @@
 bucket  = "s3backend-gha"
 region  = "us-east-1"
 profile = "prod"
-key = "CC_s3_bkt_encryption_bkt"
+
