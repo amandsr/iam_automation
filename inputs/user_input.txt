@@ -1,24 +1,28 @@
-role_name: CC_s3_bkt_encrypt
-policy_name: s3ReadPutBucketEncrypt
-assume_role_policy: s3.amazonaws.com
+role_name: CC_s3_Ashish
+policy_name: CC_s3_Ashish_policy
+assume_role_policy: lambda.amazonaws.com
 
 statement1.effect: Allow
 statement1.actions: s3:GetObject, s3:PutObject
-statement1.resources: arn:aws:s3:::my_bkt, arn:aws:s3:::my_bkt/*
+statement1.resources: arn:aws:s3:::Ashish_bkt, arn:aws:s3:::aman_my_bkt/*
 
 statement2.effect: Allow
 statement2.actions: dynamodb:PutItem, dynamodb:GetItem
-statement2.resources: arn:aws:dynamodb:us-west-2:123456789012:table/my_table
+statement2.resources: arn:aws:dynamodb:us-west-2:123456789012:table/our_table
 
 statement3.effect: Allow
 statement3.actions: eks:DescribeCluster
 statement3.resources: arn:aws:eks:us-west-2:123456789012:cluster/my-cluster
 
 statement4.effect: Allow
-statement4.actions: ec2:StopInstances, ec2:RebootInstances
+statement4.actions: ec2:StopInstances, ec2:RebootInstances, ec2:AllocateAddress, ec2:AssociateAddress, ec2:CreateNetworkInterface
 statement4.resources: "*"
 statement4.condition.Null.aws:RequestTag/owner: true
 
 statement5.effect: Allow
 statement5.actions: lambda:Invoke
 statement5.resources: "*"
+
+statement6.effect: Allow
+statement6.actions: kinesis:CreateStream, kinesis:PutRecords
+statement6.resources: "arn:aws:kinesis:*:*:stream/aws-rds-das-*"
