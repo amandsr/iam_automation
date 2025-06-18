@@ -45,7 +45,7 @@ jobs:
       working-directory: terraform/
 
     - name: Terraform Plan
-      run: terraform.exe plan -var-file=auto_inputs.tfvars.json -out=tfplan
+      run: terraform plan -var-file=auto_inputs.tfvars.json -out=tfplan
       working-directory: terraform/
 
   approve-and-apply:
@@ -65,5 +65,5 @@ jobs:
       uses: hashicorp/setup-terraform@v3
 
     - name: Terraform Apply
-      run: terraform.exe apply -var-file=auto_inputs.tfvars.json -auto-approve tfplan
+      run: terraform apply -var-file=auto_inputs.tfvars.json -auto-approve tfplan
       working-directory: terraform/
