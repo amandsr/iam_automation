@@ -1,6 +1,6 @@
-role_name: CC_s3_Ashish
-policy_name: CC_s3_Ashish_policy
-assume_role_policy: lambda.amazonaws.com
+role_name: CC_s3_raju
+policy_name: CC_s3_raju_policy
+assume_role_policy: s3.amazonaws.com
 
 statement1.effect: Allow
 statement1.actions: s3:GetObject, s3:PutObject
