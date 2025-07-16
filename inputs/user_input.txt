@@ -1,5 +1,5 @@
-role_name: CC_s3_raju
-policy_name: CC_s3_raju_policy
+role_name: CC_s3_babu
+policy_name: CC_s3_babu_policy
 assume_role_policy: s3.amazonaws.com
 
 statement1.effect: Allow
