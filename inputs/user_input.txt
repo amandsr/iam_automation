@@ -12,7 +12,7 @@ statement2.resources: arn:aws:dynamodb:us-west-2:123456789012:table/our_table
 
 statement3.effect: Allow
 statement3.actions: eks:DescribeCluster
-statement3.resources: arn:aws:eks:us-west-2:123456789012:cluster/my-cluster
+statement3.resources: arn:aws:eks:us-west-2:123456789002:cluster/my-cluster
 
 statement4.effect: Allow
 statement4.actions: ec2:StopInstances, ec2:RebootInstances, ec2:AllocateAddress
